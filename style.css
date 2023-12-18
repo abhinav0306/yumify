@@ -48,25 +48,29 @@ body {
     cursor: pointer;
 }
 
-span {
+#tryThis {
     font-size: 19px;
     font-weight: bold;
     margin: 20px auto;
-    display: block;
+
 }
 
 #randomDish {
-    height: 40vh;
+    height: fit-content;
     padding: 20px;
-    background-color: #d8e8e5; 
+    background-color: #82e7d4; 
     border-radius: 10px;
+    width: fit-content;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); 
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.7rem;
 }
 #randomDish img{
     height: 30vh;
     border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); 
+
+    
 }
 #searchResult {
     margin-top: 10vh;
@@ -91,3 +95,111 @@ span {
 }
 
 
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.container {
+    background-color: #f0f8f2;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #36413e;
+    border-radius: 10px;
+    max-width: 600px;
+    height: fit-content;
+}
+
+.close {
+    color: #36413e;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ff4040;
+}
+
+#modalTitle {
+    margin-top: 0;
+}
+
+#modalImage {
+    width: 30vw;
+    height: fit-content;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); 
+
+}
+
+#modalIngredients {
+    list-style-type: none;
+    padding: 0;
+    
+}
+
+#modalIngredients li {
+    margin-bottom: 5px;
+}
+
+
+footer{
+    width: 100%;
+    height: 8vh;
+    background-color: #82e7d579;
+    margin-top: 2vh;
+}
+
+#categoryHeading{
+    font-size: 1.8rem;
+    margin-top: 10vh;
+}
+
+@media screen and (max-width: 700px) {
+    
+    #logo img {
+        width: 25vw; 
+    }
+    
+    #searchBox {
+        max-width: 300px;
+    }
+    #randomDish {
+        height: fit-content;
+        width: 60vw;
+        font-size: 0.7rem;
+    }
+    #randomDish img{
+        height: 20vh;        
+    }
+   
+    
+    #searchResult div {
+        width: 60vw;
+        height: fit-content;
+    }
+    #searchResult img{
+        height: 40vw;
+        width: 40vw;
+    }
+    .container {
+        max-width: 70vw;
+    }
+    
+    .close {
+        font-size: 30px;
+    }
+
+    #modalImage {
+        width: 50vw;
+    }
+}
