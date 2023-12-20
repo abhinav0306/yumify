@@ -1,12 +1,13 @@
 body {
-    background-color: #f0f8f2; 
-    color: #36413e; 
+    background-color: #0a0a0a; 
+    color: #ffffff; 
     font-family: 'Arial', sans-serif; 
     margin: 0;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 2vh;
 }
 .flex{
     display: flex;
@@ -27,19 +28,20 @@ body {
 }
 
 #searchBox {
-    background-color: #d8e8e5; 
+    background-color: #000000; 
     padding: 10px;
     max-width: 400px;
     width: 100%;
     border-radius: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
 }
 
 #searchBox input {
     border: none;
     outline: none;
-    background-color: #d8e8e5;
+    background-color: #000000;
     width: 80%;
+    color: #f0f8f2;
     padding: 10px;
     border-radius: 5px;
 }
@@ -54,11 +56,21 @@ body {
     margin: 20px auto;
 
 }
-
+#toggle{
+    border-radius: 20px;
+    height: 4vh;
+    cursor: pointer;
+    box-shadow: 0 0 1vh rgba(162, 218, 229, 0.6); 
+    position: absolute;
+    background-color: black;
+    color: white;
+    right: 1vh;
+    top: 1vh;
+}
 #randomDish {
     height: fit-content;
     padding: 20px;
-    background-color: #82e7d4; 
+    background-color: #bd75f479; 
     border-radius: 10px;
     width: fit-content;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); 
@@ -72,6 +84,12 @@ body {
 
     
 }
+
+#categoryHeading{
+    font-size: 1.8rem;
+    margin-top: 10vh;
+}
+
 #searchResult {
     margin-top: 10vh;
     display: flex;
@@ -82,10 +100,12 @@ body {
 #searchResult div {
     width: 20vw;
     height: 40vh;
-    background-color: #d8e8e5; 
+    background-color: #c0e7f5cf; 
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); 
+    cursor: pointer;
+    color: #000000;
 }
 #searchResult img{
     height: 15vw;
@@ -94,8 +114,15 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
+#searchResult div:hover {
+    box-shadow: 0 0 10px rgb(255, 255, 255); 
+}
+#randomDish:hover{
+    box-shadow: 0 0 10px rgb(254, 254, 254); 
+}
 
 
+/* styling the modal and giving it display none in the starting */
 .modal {
     display: none;
     position: fixed;
@@ -107,17 +134,20 @@ body {
 }
 
 .container {
-    background-color: #f0f8f2;
+    background-color: black;
     margin: 10% auto;
     padding: 20px;
     border: 1px solid #36413e;
     border-radius: 10px;
     max-width: 600px;
     height: fit-content;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); 
+
+    /* color: black; */
 }
 
 .close {
-    color: #36413e;
+    color: #ffffff;
     float: right;
     font-size: 20px;
     font-weight: bold;
@@ -127,6 +157,7 @@ body {
 .close:hover {
     color: #ff4040;
 }
+
 
 #modalTitle {
     margin-top: 0;
@@ -150,20 +181,33 @@ body {
 #modalIngredients li {
     margin-bottom: 5px;
 }
+.sizeSmall{
+    font-size: 1rem;
+    font-weight: 300;
+}
 
-
+/* styling footer */
 footer{
     width: 100%;
-    height: 8vh;
-    background-color: #82e7d579;
+    height: fit-content;
+    background-color: #ffffff1e;
     margin-top: 2vh;
-}
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
 
-#categoryHeading{
-    font-size: 1.8rem;
-    margin-top: 10vh;
 }
-
+footer img{
+    width: 2vw;
+    margin: 0.5vw;
+    filter: invert();
+}
+#logo img{
+    filter: invert();
+}
+/* making the webpage responsive */
 @media screen and (max-width: 700px) {
     
     #logo img {

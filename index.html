@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yumify</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="assets/yumifylogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="lightmode.css" id="theme">
+    <link rel="shortcut icon" href="assets/yumifylogo.png" type="image/x-icon" >
 </head>
 <body>
     <div id="logo">
-        <img src="assets/yumifylogo.png" alt="">
+        <img src="assets/yumifylogo.png" alt="" id="logo">
     </div>
+
+    <button id="toggle">Dark Mode</button>
     <div id="websiteInfo">
         Indulge your taste buds and embark on a culinary adventure with us, your ultimate destination for delightful recipes from around the world. Immerse yourself in a world of flavors, where each dish tells a unique story and invites you to explore the art of cooking.
     </div>
@@ -39,22 +41,29 @@
     <div id="randomDish">
         
     </div>
+
     <div id="modal" class="modal">
         <div class="container">
             <span class="close" id="closeBtn">&times;</span>
             <h2 id="modalTitle"></h2>
             <img src="" alt="" id="modalImage">
-            <p id="modalDescription"></p>
             <strong><h2>Ingredients</h3></strong>
             <ul id="modalIngredients"></ul>
+            <strong><h2>Category: <span id="randomCategory" class="sizeSmall"></span></h3></strong>
+                
+                <strong><h2>Area: <span id="randomArea" class="sizeSmall"></span></h3></strong>
+                    
         </div>
     </div>
     <h2 id="categoryHeading"></h2>
     <div id="searchResult" class="flex">
 
     </div>
-    <footer>
-        <p>Made with 💖 by Abhinav | API used in this project is provided by <a href="https://www.themealdb.com/"> <i> TheMealDB</i></a></p>
+    <!-- making the footer for credits and displaying socials -->
+    <footer id="footer">
+        <div id="credits"> <p>Made with 💖 by Abhinav | API used in this project is provided by <a href="https://www.themealdb.com/" target="_blank"> <i> TheMealDB</i></a></p></div>
+        <div id="social"> <a href="mailto:abhinav.singh@kalvium.community
+            " target="_blank"><img src="assets/gmaillogo.webp" alt="gmail"></a> <a href="https://www.linkedin.com/in/abhinav-843b7526a/" target="_blank"><img src="assets/linkedinlogo.webp" alt="linkedin"></a> <a href="https://github.com/abhinav0306" target="_blank"><img src="assets/githublogo.webp" alt="github"></a> </div>
     </footer>
 </body>
 </html>

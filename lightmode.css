@@ -1,0 +1,238 @@
+body {
+    background-color: #f0f8f2; 
+    color: #36413e; 
+    font-family: 'Arial', sans-serif; 
+    margin: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+}
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#logo img {
+    width: 100px; 
+    margin-top: 20px;
+}
+
+#websiteInfo {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+#searchBox {
+    background-color: #d8e8e5; 
+    padding: 10px;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+
+#searchBox input {
+    border: none;
+    outline: none;
+    background-color: #d8e8e5;
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#searchBox img {
+    cursor: pointer;
+}
+
+#tryThis {
+    font-size: 19px;
+    font-weight: bold;
+    margin: 20px auto;
+
+}
+#toggle{
+    border-radius: 20px;
+    height: 4vh;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    position: absolute;
+    right: 1vh;
+    top: 1vh; 
+}
+#randomDish {
+    height: fit-content;
+    padding: 20px;
+    background-color: #82e7d4; 
+    border-radius: 10px;
+    width: fit-content;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); 
+    cursor: pointer;
+    font-size: 0.7rem;
+}
+#randomDish img{
+    height: 30vh;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); 
+
+    
+}
+
+#categoryHeading{
+    font-size: 1.8rem;
+    margin-top: 10vh;
+}
+
+#searchResult {
+    margin-top: 10vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#searchResult div {
+    width: 20vw;
+    height: 40vh;
+    background-color: #d8e8e5; 
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); 
+    cursor: pointer;
+}
+#searchResult img{
+    height: 15vw;
+    width: 15vw;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+#searchResult div:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1); 
+}
+#randomDish:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1); 
+}
+
+
+/* styling the modal and giving it display none in the starting */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.container {
+    background-color: #f0f8f2;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #36413e;
+    border-radius: 10px;
+    max-width: 600px;
+    height: fit-content;
+}
+
+.close {
+    color: #36413e;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ff4040;
+}
+
+
+#modalTitle {
+    margin-top: 0;
+}
+
+#modalImage {
+    width: 30vw;
+    height: fit-content;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); 
+
+}
+
+#modalIngredients {
+    list-style-type: none;
+    padding: 0;
+    
+}
+
+#modalIngredients li {
+    margin-bottom: 5px;
+}
+.sizeSmall{
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+/* styling footer */
+footer{
+    width: 100%;
+    height: fit-content;
+    background-color: #82e7d579;
+    margin-top: 2vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+
+}
+footer img{
+    width: 2vw;
+    margin: 0.5vw;
+}
+
+/* making the webpage responsive */
+@media screen and (max-width: 700px) {
+    
+    #logo img {
+        width: 25vw; 
+    }
+    
+    #searchBox {
+        max-width: 300px;
+    }
+    #randomDish {
+        height: fit-content;
+        width: 60vw;
+        font-size: 0.7rem;
+    }
+    #randomDish img{
+        height: 20vh;        
+    }
+   
+    
+    #searchResult div {
+        width: 60vw;
+        height: fit-content;
+    }
+    #searchResult img{
+        height: 40vw;
+        width: 40vw;
+    }
+    .container {
+        max-width: 70vw;
+    }
+    
+    .close {
+        font-size: 30px;
+    }
+
+    #modalImage {
+        width: 50vw;
+    }
+}

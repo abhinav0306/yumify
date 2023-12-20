@@ -17,7 +17,7 @@ const modalMealImage = document.getElementById("modalImage")
 const modalIngredients = document.getElementById("modalIngredients")
 
 function displayRandomMeal(mealData) {
-    randomDish.innerHTML = ''
+    randomDish.innerHTML = " "
 
     const mealName = document.createElement('h2')
     mealName.textContent = mealData.meals[0].strMeal
@@ -34,13 +34,11 @@ fetchRandomMeal()
 
 //making open modal function to open the modal on randomDish click.
 function openModal(meal) {
-    modalMealName.textContent = meal.strMeal  
-    modalMealImage.src = meal.strMealThumb    
+    modalMealName.textContent = meal.strMeal
+    modalMealImage.src = meal.strMealThumb
 
-    
-    modalIngredients.innerHTML = ''
+    modalIngredients.innerHTML = " "
 
-   
     for (let i = 1; i <= 20; i++) {
         const ingredient = meal[`strIngredient${i}`]
         const measure = meal[`strMeasure${i}`]
@@ -52,8 +50,16 @@ function openModal(meal) {
         }
     }
 
+    const category = document.getElementById("randomCategory")
+    category.innerHTML = meal.strCategory
+
+    const area = document.getElementById("randomArea")
+    area.innerHTML = meal.strArea
+
     modal.style.display = "block"
 }
+
+
 
 
 
@@ -87,43 +93,70 @@ async function fetchMealsByCategory() {
 //these two event listeners will trigger the search box when pressed enter or clicked the search icon
 searchBox.addEventListener('keypress', function (event) {
     if (event.key == 'Enter') {
+        location.href="#categoryHeading"
     fetchMealsByCategory()
 }
 })
 document.getElementById("searchIcon").addEventListener("click",function(event){
     fetchMealsByCategory()
+    location.href="#categoryHeading"
 })
 
-const heading=document.getElementById("categoryHeading")
+//this function will fetch meals using id to display the ingredients in the modal
+async function fetchMealDetailsById(mealId) {
+    try {
+        let data = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
+        let res = await data.json()
+        return res.meals[0]
+    } catch (error) {
+        console.log(error)
+    }
+}
 
+
+
+const heading=document.getElementById("categoryHeading")
 const searchResult=document.getElementById("searchResult")
+
 //displayMeals will display the results for the searched category.
 function displayMeals(results) {
-    searchResult.innerHTML = ''
-    heading.innerHTML=""
+    searchResult.innerHTML = " "
+    heading.innerHTML = " "
+
     if (results.meals) {
         results.meals.forEach(meal => {
-
             const mealDiv = document.createElement('div')
-            mealDiv.setAttribute("class","mealDivBox")
+            mealDiv.setAttribute("class", "mealDivBox")
             const mealName = document.createElement('h3')
             mealName.textContent = meal.strMeal
             const mealImage = document.createElement('img')
             mealImage.src = meal.strMealThumb
-            mealImage.alt = meal.strMeal
-            
             mealDiv.appendChild(mealImage)
             mealDiv.appendChild(mealName)
             searchResult.appendChild(mealDiv)
-        
-            heading.innerHTML=`Meals for ${searchBox.value}`
-            
+
+            heading.innerHTML = `Meals for ${searchBox.value}`
+
+            mealDiv.addEventListener('click', async () => {
+                const mealDetails = await fetchMealDetailsById(meal.idMeal)
+                openModal(mealDetails)
+            })
         })
     } else {
-        const notFound = document.createElement('p')
-        notFound.innerText = 'No meals found for the selected category.'
-        searchResult.appendChild(notFound)
-        // heading.style.display="none"
-
+        const error = document.createElement('p')
+        error.innerText = 'No meals found for the selected category.'
+        searchResult.appendChild(error)
     }
 }
+const btn = document.getElementById("toggle")
+const theme = document.getElementById("theme")
+btn.addEventListener("click", function() {
+if (theme.getAttribute("href") == "./lightmode.css") {
+    theme.href = "./darkmode.css"
+    btn.innerText="Light Mode"
+
+} else {
+    theme.href = "./lightmode.css"
+    btn.innerText="Dark Mode"
+}
+})
